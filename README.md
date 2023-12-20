@@ -231,3 +231,70 @@ Ini merupakan sebuah API yang menyediakan fungsi daily routine dalam aplikasi AI
       Unauthorized
     }
     ```
+
+
+## Delete All Activities 
+- **Metode** : DELETE
+- **Headers** : Authorization Bearer Token
+- **URL** : **/activities**
+- **Response Body** :
+  ```json
+  {
+    "error": false,
+    "message": "success deleted all activities"
+  }
+  ```
+
+- Jika token salah atau tidak sesuai, server akan mengembalikan respons :
+  - **Status Code** : 403
+  - **Response Body** :
+    ```json
+    {
+      Forbidden
+    }
+    ```
+- Jika token kosong, server akan mengembalikan respons :
+  - **Status Code** : 401
+  - **Response Body** :
+    ```json
+    {
+      Unauthorized
+    }
+    ```
+    
+## Recommendation Activities 
+- **Metode** : GET
+- **Headers** : Authorization Bearer Token
+- **URL** : **/prediction/activities/{activityId}**
+- **Response Body** :
+  ```json
+  {
+    "Rekomendasi Aktivitas": "Konseling atau Terapi: Pertimbangkan untuk berkonsultasi dengan seorang profesional kesehatan mental.",
+    "Stress Level": 4
+  }
+  ```
+- Jika id dari activity salah / tidak ditemukan, server akan emngembalikan respons :
+  - **Status Code** : 404
+  - **Response Body** :
+    ```json
+    {
+      "error": true,
+      "message": "Activity not found"
+    }
+    ```
+- Jika token salah atau tidak sesuai, server akan mengembalikan respons :
+  - **Status Code** : 403
+  - **Response Body** :
+    ```json
+    {
+      Forbidden
+    }
+    ```
+- Jika token kosong, server akan mengembalikan respons :
+  - **Status Code** : 401
+  - **Response Body** :
+    ```json
+    {
+      Unauthorized
+    }
+    ```
